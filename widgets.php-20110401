@@ -1,0 +1,475 @@
+<?php function widget_article_info($INFO) { ?>
+  <div id="widget">
+    <h6>Article Info</h6>
+    <li><b>Created:</b> <?php echo date('l jS  F Y H:i:s', $INFO['meta']['date']['created']); ?></li>
+    <li><b>Edited:</b> <?php echo date('l jS  F Y H:i:s', $INFO['meta']['date']['modified']); ?></li>
+    <li><b>Edit summary:</b> <?php echo $INFO['sum']; ?></li>
+  </div>
+<?php } ?>
+
+
+<?php function widget_share() { ?>
+  <div class="addthis">
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+      <a class="addthis_button_tweet"></a>
+      <a class="addthis_counter addthis_pill_style"></a>
+    </div>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=mohdshakir"></script>
+    <!-- AddThis Button END -->
+  </div>
+<?php } ?>
+
+<?php function widget_facebook($INFO) { ?>
+  <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FTechRecipes&amp;width=183&amp;colorscheme=light&amp;connections=15&amp;stream=false&amp;header=false&amp;height=255" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:183px; height:255px;" allowTransparency="true"></iframe>
+<?php } ?>
+
+<?php function widget_subcategories($INFO) { ?>
+  <div id="widget">
+    <h6>Subcategories</h6>
+    <?php dwp_display_wiki_page(":".$INFO['namespace'].":categories"); ?>
+  </div>
+<?php } ?>
+
+
+<?php function widget_recent_update($INFO) { ?>
+  <div id="widget">
+    <h6>Recent Update</h6>
+    <?php /* echo p_render('xhtml',p_get_instructions('{{changes>ns ='. $INFO["namespace"] . '  & type = edit, minor & count=5 & render = list(nosignature,nosummary)}}'),$info); */ ?>
+    <?php echo p_render('xhtml',p_get_instructions('{{changes>type = edit, minor & count=5 & render = list(nosignature,nosummary)}}'),$info); ?>
+  </div>
+<?php } ?>
+
+<?php function widget_recent_add($INFO) { ?>
+  <div id="widget">
+    <h6>Recent Addition</h6>
+    <?php echo p_render('xhtml',p_get_instructions('{{changes>type = create & count=5 & render = list(nosignature,nosummary)}}'),$info); ?>
+  </div>
+<?php } ?>
+
+<?php function widget_articles_draft($INFO) { ?>
+  <div id="widget">
+    <h6>Draft</h6>
+    <?php echo p_render('xhtml',p_get_instructions('{{topic>draft &nodate&nouser}}'),$info); ?>
+  </div>
+<?php } ?>
+
+
+<?php function widget_articles_featured($INFO) { ?>
+  <div id="widget">
+    <h6>Featured</h6>
+    <?php /*echo p_render('xhtml',p_get_instructions('{{topic>'. str_replace(":", " ", $INFO['namespace'] ) .' +featured &nodate&nouser}}'),$info);*/ ?>
+    <?php echo p_render('xhtml',p_get_instructions('{{topic>featured &nodate&nouser}}'),$info); ?>
+  </div>
+<?php } ?>
+
+
+
+
+<?php function widget_edit_info($INFO) { ?>
+  <div id="widget">
+    <h6>Article creation and editing guidelines</h6>
+    <?php dwp_display_wiki_page(":wiki:pages:edit-sidebar"); ?>
+  </div>
+<?php } ?>
+
+
+<?php function widget_advertisement_120() { ?>
+  <div id="widget">
+    <h6>Advertisement</h6>
+
+    <script type="text/javascript"><!--
+    google_ad_client = "ca-pub-2726248188023431";
+    /* techrecipes - sidebar - 120 */
+    google_ad_slot = "5066626567";
+    google_ad_width = 120;
+    google_ad_height = 600;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </div>
+<?php } ?>
+
+
+<?php function widget_advertisement_160() { ?>
+  <div style="margin:0 15px 15px;;">
+<script type="text/javascript"><!--
+google_ad_client = "pub-2726248188023431";
+/* techrecipes - 160 */
+google_ad_slot = "7857590482";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+  </div>
+<?php } ?>
+
+
+
+
+<?php function widget_advertisement_300() { ?>
+  <div id="widget">
+    <script type="text/javascript"><!--
+    google_ad_client = "ca-pub-2726248188023431";
+    /* techrecipes - sidebar - 300 */
+    google_ad_slot = "5136000191";
+    google_ad_width = 300;
+    google_ad_height = 250;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </div>
+<?php } ?>
+
+
+<?php function widget_advertisement_336() { ?>
+  <div id="widget">
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-2726248188023431";
+    /* techrecipes - sidebar - 336 */
+    google_ad_slot = "3682473450";
+    google_ad_width = 336;
+    google_ad_height = 280;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </div>
+<?php } ?>
+
+
+<?php function widget_navi_categories() { ?>
+  <div id="widget">
+    <h6>Categories</h6>
+    <?php dwp_display_wiki_page(":wiki:pages:categories"); ?>
+  </div>
+<?php } ?>
+
+
+
+<?php function toolbar($INFO) { ?>
+  <div id="box_top">
+    <div class="bar_right" >
+      <div class="bar_left">
+	<?php tpl_button('edit')?>
+      </div>
+      <div class="bar_right">
+	<INPUT TYPE="BUTTON" VALUE="Add new article" ONCLICK="window.location.href='http://www.techrecipes.net/wiki/temp/<?php echo time();?>?do=edit'" class='button'>
+      </div>
+      <div class="clearer"></div>
+      <div style="margin-bottom:10px; border-bottom:1px #f3f3f3 solid; padding-bottom:10px;"></div>
+      <?php widget_share(); ?>
+<div class="clearer"></div>
+      <div style="margin-bottom:10px; border-bottom:1px #f3f3f3 solid; padding-bottom:10px;"></div>
+      <div id="toolbar_article">
+        <li>Created on: <?php echo date('l jS  F Y H:i:s', $INFO['meta']['date']['created']); ?></li>
+        <li>Last edit on: <?php echo date('l jS  F Y H:i:s', $INFO['meta']['date']['modified']); ?></li>
+        <li>Last edit summary: <?php echo $INFO['sum']; ?></li>
+      </div>
+<div class="clearer"></div>
+      <div style="margin-bottom:10px; border-bottom:1px #f3f3f3 solid; padding-bottom:10px;"></div>
+
+
+    </div>
+    <div class="bar_left" style="border-right:1px #f3f3f3 solid">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2726248188023431";
+/* techrecipes - 336 */
+google_ad_slot = "5307380352";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+    </div>
+
+  </div>
+<?php } ?>
+
+<?php function toolbar_bottom($INFO) { ?>
+  <div id="box">
+    <div class="bar_right">
+      <?php widget_share(); ?>
+    </div>
+    <div class="bar_left">
+      <div class="bar_left">
+        <?php tpl_button('edit')?>
+      </div>
+      <div class="bar_right">
+        <INPUT TYPE="BUTTON" VALUE="Add new article" ONCLICK="window.location.href='http://www.techrecipes.net/wiki/temp/<?php echo time();?>?do=edit'" class='button'>
+      </div>
+      <div class="clearer"></div>
+      <div style="margin-bottom:10px;"></div>
+      <div id="toolbar_article">
+        <li>Created on: <?php echo date('l jS  F Y H:i:s', $INFO['meta']['date']['created']); ?></li>
+        <li>Last edit on: <?php echo date('l jS  F Y H:i:s', $INFO['meta']['date']['modified']); ?></li>
+        <li>Last edit summary: <?php echo $INFO['sum']; ?></li>
+      </div>
+    </div>
+
+  </div>
+<?php } ?>
+
+<?php function box_facebook() { ?>
+  <div id="box">
+    <div class="bar_left">
+      <script type="text/javascript"><!--
+      google_ad_client = "pub-2726248188023431";
+      /* techrecipes - 336 - 2 */
+      google_ad_slot = "9429192421";
+      google_ad_width = 336;
+      google_ad_height = 280;
+      //-->
+      </script>
+      <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+      </script>
+    </div>
+    <div class="bar_right">
+      <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FTechRecipes&amp;width=292&amp;colorscheme=light&amp;connections=15&amp;stream=false&amp;header=false&amp;height=255" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:255px;" allowTransparency="true"></iframe>
+    </div>
+  <div class="clearer"></div>
+  </div>
+<?php } ?>
+
+
+<?php function toolbar_all($INFO) { ?>
+  <div id="box">
+    <div class="bar_left">
+      <script type="text/javascript"><!--
+      google_ad_client = "pub-2726248188023431";
+      /* techrecipes - 336 */
+      google_ad_slot = "5307380352";
+      google_ad_width = 336;
+      google_ad_height = 280;
+      //-->
+      </script>
+      <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+      </script>
+<br>
+
+      <script type="text/javascript"><!--
+      google_ad_client = "pub-2726248188023431";
+      /* techrecipes - 336 - 2 */
+      google_ad_slot = "9429192421";
+      google_ad_width = 336;
+      google_ad_height = 280;
+      //-->
+      </script>
+      <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+      </script>
+
+    </div>
+    <div class="bar_right" style="margin:3px 0 0 0">
+      <div class="bar_left">
+        <?php tpl_button('edit')?>
+      </div>
+      <div class="bar_right">
+        <INPUT TYPE="BUTTON" VALUE="Add new article" ONCLICK="window.location.href='http://www.techrecipes.net/wiki/temp/<?php echo time();?>?do=edit'" class='button'>
+      </div>
+      <div class="clearer"></div>
+      <div class="separator"></div>
+      <div style="margin-bottom:10px;"></div>
+      <?php widget_share(); ?>
+      <div class="clearer"></div>
+      <div class="separator"></div>
+      <div id="toolbar_article">
+        <li>Created on: <?php echo date('l jS  F Y H:i:s', $INFO['meta']['date']['created']); ?></li>
+        <li>Last edit on: <?php echo date('l jS  F Y H:i:s', $INFO['meta']['date']['modified']); ?></li>
+        <li>Last edit summary: <?php echo $INFO['sum']; ?></li>
+      <div class="clearer"></div>
+      <div class="separator"></div>
+      <div style="margin-bottom:10px;"></div>
+      </div>
+      <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FTechRecipes&amp;width=292&amp;colorscheme=light&amp;connections=15&amp;stream=false&amp;header=false&amp;height=255" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:255px;" allowTransparency="true"></iframe>
+
+    </div>
+
+  </div>
+
+<?php } ?>
+
+
+<?php function box_backlink() { ?>
+
+  <div id="box">
+<h6>This article is part of the following article(s)</h6>
+    <?php echo p_render('xhtml',p_get_instructions('{{backlinks>.}}'),$info); ?>
+  </div>
+
+<?php } ?>
+
+<?php function widget_navi_collaborate() { ?>
+  <div id="widget">
+    <h6>Collaborate</h6>
+    <?php dwp_display_wiki_page(":wiki:pages:collaborate"); ?>
+  </div>
+<?php } ?>
+
+
+<?php function box_search() { ?>
+  <div id="box">
+
+    <div class="bar_left">
+<h6>Search other articles:  </h6>
+    </div>
+
+    <div class="bar_right">
+
+
+<form action="http://www.google.com/cse" id="cse-search-box" target="_blank">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-2726248188023431:eb38kmwfefc" />
+    <input type="hidden" name="ie" value="ISO-8859-1" />
+    <input type="text" name="q" size="47" />
+    <input type="submit" name="sa" value="Search" />
+  </div>
+</form>
+<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
+    </div>
+
+
+  <div class="clearer"></div>
+  </div>
+<?php } ?>
+
+
+
+<?php function box_advertisement() { ?>
+  <div style="margin:30px;">
+  <center>
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-2726248188023431";
+    /* techrecipes - footer */
+    google_ad_slot = "4037321061";
+    google_ad_width = 336;
+    google_ad_height = 280;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </center>
+  </div>
+<?php } ?>
+
+<?php function advertisement_728() { ?>
+  <script type="text/javascript"><!--
+  google_ad_client = "pub-2726248188023431";
+  /* techrecipes - header - 728 */
+  google_ad_slot = "3897659949";
+  google_ad_width = 728;
+  google_ad_height = 90;
+  //-->
+  </script>
+  <script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+<?php } ?>
+
+
+
+<?php function advertisement_336() { ?>
+<div id="box_top">
+<script type="text/javascript"><!--
+google_ad_client = "pub-2726248188023431";
+/* techrecipes - 336 */
+google_ad_slot = "5307380352";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<?php } ?>
+
+
+
+<?php function box_advertisement_footer_468() { ?>
+  <div style="margin:20px;">
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-2726248188023431";
+    /* techrecipes - footer - 468 */
+    google_ad_slot = "2626753728";
+    google_ad_width = 468;
+    google_ad_height = 60;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </div>
+<?php } ?>
+
+
+<?php function box_advertisement_header_468() { ?>
+  <div style="margin:15px 0;">
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-2726248188023431";
+    /* techrecipes - header - 468 */
+    google_ad_slot = "1100877624";
+    google_ad_width = 468;
+    google_ad_height = 60;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </div>
+<?php } ?>
+
+
+
+<?php function box_share() { ?>
+  <div id="box">
+    <h6>Share this article</h6>
+    <br />
+    <div class="addthis">
+      <!-- AddThis Button BEGIN -->
+      <div class="addthis_toolbox addthis_default_style">
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	<a class="addthis_button_tweet"></a>
+	<a class="addthis_counter addthis_pill_style"></a>
+      </div>
+      <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=mohdshakir"></script>
+      <!-- AddThis Button END -->
+    </div>
+
+  </div>
+<?php } ?>
+
+
+<?php function box_disqus() { ?>
+  <div id="box">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      /**
+      * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
+      */
+      (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://techrecipes.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=techrecipes">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" rel="nofollow" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+<?php } ?>
+
