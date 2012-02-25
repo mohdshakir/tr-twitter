@@ -97,7 +97,7 @@ if (!defined('DOKU_INC')) die();
       <div class="clearer"></div>
     </div>
 	      </div>
-	
+	/home/shakir/Workspace/Apache
 	    </div>
 	    <div id="leftcol">
 	      <?php
@@ -125,7 +125,7 @@ if (!defined('DOKU_INC')) die();
 	</div>
 	<div id="copyright" style="text-align:center;">
 		<p>Except where otherwise noted, content on this wiki is licensed under the following license:<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="nofollow">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a>    
-		<p>Another piece of <a href="http://www.mohdshakir.net" rel="nofollow">Mohd Shakir Zakaria</a> for <a href="http://wiki.oseems.com" rel="nofollow">osWiki</a></p>
+		<p>Another piece of <a href="http://www.mohdshakir.net" rel="nofollow">Mohd Shakir Zakaria</a> for <a href="http://docs.oseems.com" rel="nofollow">osDocs</a></p>
 	</div>
 	  
 	
